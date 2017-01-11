@@ -1,1 +1,1 @@
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/vms/vagrant/projects/btmbase-test","disabled":false,"__vagrantfile":true}}}
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/vms/vagrant/projects/kestrel/btmbase-test","disabled":false,"__vagrantfile":true}}}
