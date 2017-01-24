@@ -1,0 +1,45 @@
+php notes
+
+may need following PHP modules
+
+curl
+
+dba
+
+ffmpeg
+
+gd
+
+homeloader
+
+imap
+
+intl
+
+
+mcrypt
+
+mysqli
+
+mysqlnd
+
+pdo_sqlite
+
+pqsql
+
+pspell
+
+sourceguardian
+
+sqlite3
+
+tidy
+
+xmlrpc
+
+xsl
+
+ionCube Loader
+
+litespeed
+
