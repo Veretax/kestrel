@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ###
 #
@@ -12,11 +12,30 @@
 ###
 
 # Variables
-DBHOST=localhost
-DBNAME=dbname
-DBUSER=dbuser
-DBPASSWD=test123
+#DBHOST=localhost
+#DBNAME=dbname
+#DBUSER=dbuser
+#DBPASSWD=test123
 
+configfile=/dbconfig.conf
+
+cat $configfile | while read -a HR ; do
+
+  [[ -z ${HR[0]} ]] && continue  # skip empty lines
+
+  DBHOST=${HR[0]}
+  DBNAME=${HR[1]}
+  DBUSER=${HR[2]}
+  DBPASSWD=${HR[3]}
+#  HOST2=${HR[4]}
+#  PW2=${HR[5]}
+
+#  imapsync \
+#  --buffersize 8192000 --nosyncacls --subscribe --syncinternaldates --IgnoreSizeErrors \
+#  --host1 $DBHOST --user1 $DBUSER --password1 $DBPASSWD --ssl1 --port1 993 --noauthmd5 \
+#  --host2 $HOST2 --user2 $USER2 --password2 $PW2 --ssl2 --port2 993 --noauthmd5 --allowsizemismatch
+
+done
 echo -e "\n--- Mkay, installing now... ---\n"
 
 echo -e "\n--- Updating packages list ---\n"
