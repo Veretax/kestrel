@@ -9,9 +9,13 @@
 # (Laravel standard).  Standard and error output is sent to
 # /vagrant/vm_build.log during provisioning.
 #
+# This script is based on a script posted in github/gist at: https://gist.github.com/rrosiek/8190550
+# Credit to Ryan Rosiek of Buffalo, NY For this script that helped me figure out how to get past an error I was seeing in Vagrant
 ###
 
 # Variables
+# You will want to create a file in the directory with the vagrant file dbconfig.conf in the format below 
+# This represents the database host, name, user, and password to initially connect with.
 #DBHOST=localhost
 #DBNAME=dbname
 #DBUSER=dbuser
