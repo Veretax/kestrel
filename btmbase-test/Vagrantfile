@@ -3,6 +3,7 @@
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
+aliasesPath = "aliases"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
@@ -10,24 +11,59 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
 
   # Create a private network, which allows host-only access to the machine using a specific IP.
-  config.vm.network "private_network", ip: "192.168.33.22"
-
-  config.vm.network "forwarded_port", guest: 80, host: 8080
+    
+  config.vm.provision "bootstrap", type: "shell" do |s|
+	config.vm.network "private_network", ip: "192.168.33.22"
+	config.vm.network "forwarded_port", guest: 80, host: 8080
   
   # Share an additional folder to the guest VM. The first argument is the path on the host to the actual folder.
   # The second argument is the path on the guest to mount the folder.
-  config.vm.synced_folder "./", "/var/www/html"
+  
+    config.vm.synced_folder "./", "/var/www/html"
   #config.vm.synced_folder "./btmdev/", "/var/www/html"
   # Define the bootstrap file: A (shell) script that runs after first setup of your box (= provisioning)
-  config.vm.provision :shell, path: "bootstrap.sh"
-
+  
+  
     config.vm.synced_folder "c:\\git\\btm-base-site-dev", "/var/www/html/btm-dev/" , type: "virtualbox"
+  end
 
-  #config.vm.box = "scotch/box"
+  
+  config.vm.provision "bootstrap", type: "shell" do |s|
+	#s.inline = "echo *************** Checking for aliasPath *************** "
+	if File.exist? aliasesPath then
+	  #config.vm.provision "bootstrap", type: "shell" do |s|
+		s.inline = "echo *************** Provision aliasesPath *************** "
+	    config.vm.provision "file", source: aliasesPath, destination: "~/.bash_aliases"
+    
+        #config.vm.provision "shell" do |s|
+        #  s.name = "Install ~/.bash_aliases"
+        #  s.inline = "awk '{ sub("\r$", ""); print }' /vagrant/aliases > /home/vagrant/.bash_aliases"
+        #end
+	  #end
+    end
+  end
+	
+#    if File.exists? homesteadYamlPath then
+#        Homestead.configure(config, YAML::load(File.read(homesteadYamlPath)))
+#    elsif File.exists? homesteadJsonPath then
+#        Homestead.configure(config, JSON.parse(File.read(homesteadJsonPath)))
+#    end
+
+#    if File.exists? afterScriptPath then
+#        config.vm.provision "shell", path: afterScriptPath
+#    end
+	
+	#config.vm.box = "scotch/box"
   #  config.vm.network "private_network", ip: "192.168.33.10"
   #  config.vm.hostname = "scotchbox"
   #  config.vm.synced_folder ".", "/var/www", :mount_options => ["dmode=777", "fmode=666"]
 
+  
+	#config.vm.provision :shell, path: "bootstrap.sh"
+
+	config.vm.provision :shell, path: "bootstrap.sh"
+	
+	
     config.vm.provision "shell", inline: <<-SHELL
         echo 'echo "upload_max_filesize = 100M" >> /etc/php5/apache2/conf.d/user.ini' | sudo -s
         echo 'echo "post_max_size = 100M" >> /etc/php5/apache2/conf.d/user.ini' | sudo -s
@@ -35,4 +71,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     SHELL
 	
 
+	
+  
 end
