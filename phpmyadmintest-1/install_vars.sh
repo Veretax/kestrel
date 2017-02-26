@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+APACHE_INSTALL=true
+PHP_INSTALL=true
+SETUP_APACHE_VIRTUAL_HOSTS=true
+MYSQL_SETUP=true
+SETUP_GIT=true
+SETUP_COMPOSER=true

@@ -1,0 +1,201 @@
+Bringing machine 'default' up with 'virtualbox' provider...
+==> default: Importing base box 'ubuntu/trusty64'...
+[KProgress: 90%[K==> default: Matching MAC address for NAT networking...
+==> default: Checking if box 'ubuntu/trusty64' is up to date...
+==> default: A newer version of the box 'ubuntu/trusty64' is available! You currently
+==> default: have version '20161214.0.1'. The latest is version '20170202.1.0'. Run
+==> default: `vagrant box update` to update.
+==> default: Setting the name of the VM: btmbase-test_default_1486872888103_73261
+==> default: Clearing any previously set forwarded ports...
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+    default: Adapter 2: hostonly
+==> default: Forwarding ports...
+    default: 80 (guest) => 8080 (host) (adapter 1)
+    default: 22 (guest) => 2222 (host) (adapter 1)
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default: 
+    default: Vagrant insecure key detected. Vagrant will automatically replace
+    default: this with a newly generated keypair for better security.
+    default: 
+    default: Inserting generated public key within guest...
+    default: Removing insecure key from the guest if it's present...
+    default: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> default: Machine booted and ready!
+[default] GuestAdditions versions on your host (5.1.12) and guest (4.3.36) do not match.
+stdin: is not a tty
+ * Stopping VirtualBox Additions
+   ...done.
+stdin: is not a tty
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  acl at-spi2-core colord dconf-gsettings-backend dconf-service dkms fakeroot
+  fontconfig fontconfig-config fonts-dejavu-core gcc gcc-4.8
+  hicolor-icon-theme libasan0 libasound2 libasound2-data libatk-bridge2.0-0
+  libatk1.0-0 libatk1.0-data libatomic1 libatspi2.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libc-dev-bin libc6-dev
+  libcairo-gobject2 libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module
+  libcanberra0 libcolord1 libcolorhug1 libcups2 libdatrie1 libdconf1
+  libdrm-intel1 libdrm-nouveau2 libdrm-radeon1 libexif12 libfakeroot
+  libfontconfig1 libfontenc1 libgcc-4.8-dev libgd3 libgdk-pixbuf2.0-0
+  libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx libglapi-mesa
+  libgomp1 libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
+  libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
+  libharfbuzz0b libice6 libieee1284-3 libitm1 libjasper1 libjbig0
+  libjpeg-turbo8 libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin
+  libnotify4 libogg0 libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0
+  libpciaccess0 libpixman-1-0 libquadmath0 libsane libsane-common libsm6
+  libtdb1 libthai-data libthai0 libtiff5 libtsan0 libtxc-dxtn-s2tc0 libv4l-0
+  libv4lconvert0 libvorbis0a libvorbisfile3 libvpx1 libwayland-client0
+  libwayland-cursor0 libx11-xcb1 libxaw7 libxcb-dri2-0 libxcb-dri3-0
+  libxcb-glx0 libxcb-present0 libxcb-render0 libxcb-shm0 libxcb-sync1
+  libxcomposite1 libxcursor1 libxdamage1 libxfixes3 libxfont1 libxi6
+  libxinerama1 libxkbcommon0 libxkbfile1 libxmu6 libxpm4 libxrandr2
+  libxrender1 libxshmfence1 libxt6 libxtst6 libxxf86vm1 linux-libc-dev
+  manpages-dev notification-daemon sound-theme-freedesktop x11-common
+  x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
+  xserver-xorg-core
+Use 'apt-get autoremove' to remove them.
+The following packages will be REMOVED:
+  virtualbox-guest-dkms* virtualbox-guest-utils* virtualbox-guest-x11*
+0 upgraded, 0 newly installed, 3 to remove and 0 not upgraded.
+After this operation, 12.1 MB disk space will be freed.
+(Reading database ... 63025 files and directories currently installed.)
+Removing virtualbox-guest-dkms (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+
+-------- Uninstall Beginning --------
+Module:  virtualbox-guest
+Version: 4.3.36
+Kernel:  3.13.0-106-generic (x86_64)
+-------------------------------------
+
+Status: Before uninstall, this module version was ACTIVE on this kernel.
+
+vboxguest.ko:
+ - Uninstallation
+   - Deleting from: /lib/modules/3.13.0-106-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+
+vboxsf.ko:
+ - Uninstallation
+   - Deleting from: /lib/modules/3.13.0-106-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+
+vboxvideo.ko:
+ - Uninstallation
+   - Deleting from: /lib/modules/3.13.0-106-generic/updates/dkms/
+ - Original module
+   - No original module was found for this module on this kernel.
+   - Use the dkms install command to reinstall any previous module version.
+
+depmod....
+
+DKMS: uninstall completed.
+
+------------------------------
+Deleting module version: 4.3.36
+completely from the DKMS tree.
+------------------------------
+Done.
+Removing virtualbox-guest-x11 (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+Purging configuration files for virtualbox-guest-x11 (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+Removing virtualbox-guest-utils (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+Purging configuration files for virtualbox-guest-utils (4.3.36-dfsg-1+deb8u1ubuntu1.14.04.1) ...
+Processing triggers for man-db (2.6.7.1-1ubuntu1) ...
+Processing triggers for libc-bin (2.19-0ubuntu6.9) ...
+stdin: is not a tty
+Reading package lists...
+Building dependency tree...
+Reading state information...
+dkms is already the newest version.
+dkms set to manually installed.
+linux-headers-3.13.0-106-generic is already the newest version.
+linux-headers-3.13.0-106-generic set to manually installed.
+The following packages were automatically installed and are no longer required:
+  acl at-spi2-core colord dconf-gsettings-backend dconf-service fontconfig
+  fontconfig-config fonts-dejavu-core hicolor-icon-theme libasound2
+  libasound2-data libatk-bridge2.0-0 libatk1.0-0 libatk1.0-data libatspi2.0-0
+  libavahi-client3 libavahi-common-data libavahi-common3 libcairo-gobject2
+  libcairo2 libcanberra-gtk3-0 libcanberra-gtk3-module libcanberra0 libcolord1
+  libcolorhug1 libcups2 libdatrie1 libdconf1 libdrm-intel1 libdrm-nouveau2
+  libdrm-radeon1 libexif12 libfontconfig1 libfontenc1 libgd3
+  libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-common libgl1-mesa-dri libgl1-mesa-glx
+  libglapi-mesa libgphoto2-6 libgphoto2-l10n libgphoto2-port10 libgraphite2-3
+  libgtk-3-0 libgtk-3-bin libgtk-3-common libgudev-1.0-0 libgusb2
+  libharfbuzz0b libice6 libieee1284-3 libjasper1 libjbig0 libjpeg-turbo8
+  libjpeg8 liblcms2-2 libllvm3.4 libltdl7 libnotify-bin libnotify4 libogg0
+  libpango-1.0-0 libpangocairo-1.0-0 libpangoft2-1.0-0 libpciaccess0
+  libpixman-1-0 libsane libsane-common libsm6 libtdb1 libthai-data libthai0
+  libtiff5 libtxc-dxtn-s2tc0 libv4l-0 libv4lconvert0 libvorbis0a
+  libvorbisfile3 libvpx1 libwayland-client0 libwayland-cursor0 libx11-xcb1
+  libxaw7 libxcb-dri2-0 libxcb-dri3-0 libxcb-glx0 libxcb-present0
+  libxcb-render0 libxcb-shm0 libxcb-sync1 libxcomposite1 libxcursor1
+  libxdamage1 libxfixes3 libxfont1 libxi6 libxinerama1 libxkbcommon0
+  libxkbfile1 libxmu6 libxpm4 libxrandr2 libxrender1 libxshmfence1 libxt6
+  libxtst6 libxxf86vm1 notification-daemon sound-theme-freedesktop x11-common
+  x11-xkb-utils xfonts-base xfonts-encodings xfonts-utils xserver-common
+  xserver-xorg-core
+Use 'apt-get autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Copy iso file C:\Program Files\Oracle\VirtualBox\VBoxGuestAdditions.iso into the box /tmp/VBoxGuestAdditions.iso
+stdin: is not a tty
+mount: block device /tmp/VBoxGuestAdditions.iso is write-protected, mounting read-only
+Installing Virtualbox Guest Additions 5.1.12 - guest version is 4.3.36
+stdin: is not a tty
+Verifying archive integrity... All good.
+Uncompressing VirtualBox 5.1.12 Guest Additions for Linux...........
+VirtualBox Guest Additions installer
+Copying additional installer modules ...
+Installing additional modules ...
+vboxadd.sh: Building Guest Additions kernel modules.
+vboxadd.sh: Starting the VirtualBox Guest Additions.
+
+Could not find the X.Org or XFree86 Window System, skipping.
+stdin: is not a tty
+Got different reports about installed GuestAdditions version:
+Virtualbox on your host claims:   4.3.36
+VBoxService inside the vm claims: 5.1.12
+Going on, assuming VBoxService is correct...
+Got different reports about installed GuestAdditions version:
+Virtualbox on your host claims:   4.3.36
+VBoxService inside the vm claims: 5.1.12
+Going on, assuming VBoxService is correct...
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default: 
+    default: Guest Additions Version: 4.3.36
+    default: VirtualBox Version: 5.1
+==> default: Configuring and enabling network interfaces...
+==> default: Mounting shared folders...
+    default: /vagrant => C:/vms/vagrant/projects/kestrel/btmbase-test
+    default: /var/www/html => C:/vms/vagrant/projects/kestrel/btmbase-test
+    default: /var/www/html/btm-dev => C:/git/btm-base-site-dev
+==> default: Running provisioner: bootstrap (shell)...
+    default: Running: inline script
+==> default: stdin: is not a tty
+==> default: *************** Checking for aliasPath ***************
+==> default: Running provisioner: file...
+==> default: Running provisioner: shell...
+    default: Running: inline script
+==> default: stdin: is not a tty
+==> default: /bin/bash: line 1: /etc/php5/apache2/conf.d/user.ini: No such file or directory
+==> default: /bin/bash: line 1: /etc/php5/apache2/conf.d/user.ini: No such file or directory
+==> default: apache2: unrecognized service
