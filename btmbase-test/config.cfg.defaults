@@ -1,0 +1,6 @@
+DBHOST=localhost
+DBNAME=database
+DBUSER=db_user
+DBPASS=user_password
+myvar=Default Value
+othervar=Another Variable
