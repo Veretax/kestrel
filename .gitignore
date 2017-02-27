@@ -23,3 +23,5 @@ btmbase-test/Archive/Old1/Vagrantfile
 lamptest-1/
 btmbase-test/.vagrant
 btmbase-test/dbconfig.conf
+btmbase-test/config.cfg
+phpmyadmintest-1/
