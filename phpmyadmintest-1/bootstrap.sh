@@ -2,22 +2,27 @@
 
 
 # Get Setup Variables
-source /vagrant/install_vars.sh
+source /vagrant/setup/install_vars.sh
 
 # Use single quotes instead of double quotes to make it work with special-character passwords
+# PASSWORD represents the default root
+# password please change before deploying to a live environment
 PASSWORD='12345678'
 PROJECTFOLDER='btm-dev'
-
+APIFOLDER='btm-api'
+JCDAVISON_WEB_PROGRAMMING='fundamentals_of_web_programming'
 # create project folder
-sudo mkdir "/var/www/html/${PROJECTFOLDER}"
+sudo mkdir "/var/www/html/${PROJECTFOLDER}" >> /vagrant/vm_build.log 2>&1
+sudo mkdir "/var/www/html/${APIFOLDER}" >> /vagrant/vm_build.log 2>&1
+sudo mkdir "/var/www/html/${JCDAVISON_WEB_PROGRAMMING}" >> /vagrant/vm_build.log 2>&1
 
 # Setup Bash Alias and Profile
-cp /vagrant/bash_aliases.txt ~/.bash_aliases
-cp /vagrant/bash_rc.txt ~/.bashrc
+cp /vagrant/bash/bash_aliases.txt ~/.bash_aliases >> /vagrant/vm_build.log 2>&1
+cp /vagrant/bash/bash_rc.txt ~/.bashrc >> /vagrant/vm_build.log 2>&1
 
 # update / upgrade
-sudo apt-get update
-sudo apt-get -y upgrade
+sudo apt-get update >> /vagrant/vm_build.log 2>&1
+sudo apt-get -y upgrade >> /vagrant/vm_build.log 2>&1
 
 # Call Setup of Apache 2.5 and PHP 5.5
 
@@ -27,9 +32,9 @@ SCRIPT_NAME=$0
 SCRIPT_FULL_PATH=$(dirname "$0")
 VAGRANT_PATH="/vagrant"
 
-echo "script_name: $SCRIPT_NAME"
-echo "full path: $SCRIPT_FULL_PATH"
-echo "vagrant path: $VAGRANT_PATH"
+echo "script_name: $SCRIPT_NAME" >> /vagrant/vm_build.log 2>&1
+echo "full path: $SCRIPT_FULL_PATH" >> /vagrant/vm_build.log 2>&1
+echo "vagrant path: $VAGRANT_PATH" >> /vagrant/vm_build.log 2>&1
 
 # $APACHESETUPPATH="./apache_php_setup.sh"
 
@@ -37,19 +42,39 @@ echo "vagrant path: $VAGRANT_PATH"
 # echo $OUTPUT
 
 if [ $APACHE_INSTALL = true ] || [ $PHP_INSTALL = true ]; then
-	source "/vagrant/apache_php_setup.sh"
+	source "/vagrant/setup/apache_php_setup.sh" >> /vagrant/vm_build.log 2>&1
 fi
 
 if [ $MYSQL_SETUP = true ]; then
-	source "/vagrant/setup_mysql_phpmyadmin.sh" $PASSWORD
+	source "/vagrant/setup/setup_mysql_phpmyadmin.sh" $PASSWORD >> /vagrant/vm_build.log 2>&1
 fi
 
 if [ $SETUP_APACHE_VIRTUAL_HOSTS = true ]; then
-	source "/vagrant/setup_virtual_hosts.sh"
+	source "/vagrant/setup/setup_virtual_hosts.sh" >> /vagrant/vm_build.log 2>&1
 fi
 
 if [ $SETUP_GIT = true ]; then
-	source "/vagrant/setup_git_composer.sh"
+	source "/vagrant/setup/setup_git_composer.sh" >> /vagrant/vm_build.log 2>&1
+fi
+
+if [ $SETUP_BTM_DB = true ]; then
+	source "/vagrant/setup/btm-db/setup_btm_db.sh" >> /vagrant/vm_build.log 2>&1
+fi
+
+if [$SETUP_RVM = true || $SETUP_RUBY = true || $SETUP_RUBY193 = true || $SETUP_RUBY240 = true || $SETUP_RAILS = true || $SETUP_SINATRA = true ]; then
+	source "/vagrant/setup/setup_rvm_ruby_sinatra.sh" >> /vagrant/vm_build.log 2>&1
+fi
+
+if [ $SETUP_GIT = true ] ; then
+	source "/vagrant/setup/setup_git.sh" >> /vagrant/vm_build.log 2>&1
+fi
+
+if [ $ADD_GEMS = true ] ; then
+	source "/vagrant/setup/add_gems.sh" >> /vagrant/vm_build.log 2>&1
+fi
+
+if [ $SETUP_ATOM = true || $SETUP_CHROME = true || $SETUP_FIREFOX = true ]; then
+	source "/vagrant/setup/setup_atom.sh" >> /vagrant/vm_build.log 2>&1
 fi
 
 # echo "************** Beginning Setup of MySQL and PHPMyAdmin **************"
@@ -139,3 +164,4 @@ fi
 # # install Composer
 # curl -s https://getcomposer.org/installer | php
 # mv composer.phar /usr/local/bin/composer
+echo "*************** End Bootstrap.sh ***************" >> /vagrant/vm_build.log 2>&1

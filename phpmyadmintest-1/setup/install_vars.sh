@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+APACHE_INSTALL=true
+PHP_INSTALL=true
+SETUP_APACHE_VIRTUAL_HOSTS=true
+MYSQL_SETUP=true
+SETUP_GIT=true
+SETUP_COMPOSER=true
+SETUP_BTM_DB=true;
+SETUP_RVM=true;
+SETUP_RUBY=true;
+SETUP_RAILS=false;
+SETUP_RUBY193=false;
+SETUP_RUBY240=true;
+SETUP_SINATRA=true; # http://www.sinatrarb.com/
+ADD_GEMS=true;
+ADD_GEM_BUNDLER=true;
+ADD_GEM_RACK_PROTECTION=true; #https://github.com/sinatra/sinatra/tree/master/rack-protection
+ADD_GEM_HAML=false; #http://haml.info/
+ADD_GEM_ERUBIS=false; # http://www.kuwata-lab.com/erubis/
+ADD_GEM_BUILDER=false; #https://github.com/jimweirich/builder
+ADD_GEM_NOKOGIRI=false; #http://www.nokogiri.org/
+ADD_GEM_SASS=false; #http://sass-lang.com/
+ADD_NPM_LESS=false; #http://lesscss.org/
+ADD_LIQUID=false; 
+SETUP_RAILS=true;
+SETUP_ATOM=true;
+SETUP_CHROME=true;
+SETUP_FIREFOX=true;

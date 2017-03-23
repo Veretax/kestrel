@@ -24,4 +24,9 @@ lamptest-1/
 btmbase-test/.vagrant
 btmbase-test/dbconfig.conf
 btmbase-test/config.cfg
-phpmyadmintest-1/
+btmbase-test/example.sql
+phpmyadmintest-1/setup/btm-db/exampledb.sql
+phpmyadmintest-1/setup/btm-db/btm_db.sh
+phpmyadmintest-1/dbconfig.conf
+phpmyadmintest-1/vm_build.log
+

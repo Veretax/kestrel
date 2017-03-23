@@ -13,12 +13,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "private_network", ip: "192.168.33.22"
 
   config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 4567, host: 8585
   
   # Share an additional folder to the guest VM. The first argument is the path on the host to the actual folder.
   # The second argument is the path on the guest to mount the folder.
   config.vm.synced_folder "./", "/var/www/html"
   #config.vm.synced_folder "./btmdev/", "/var/www/html"
   # Define the bootstrap file: A (shell) script that runs after first setup of your box (= provisioning)
+  
+  config.vm.provider "virtualbox" do |v|
+	v.gui = true
+  end
+  
   config.vm.provision :shell, path: "bootstrap.sh"
 
     config.vm.synced_folder "c:\\git\\btm-base-site-dev", "/var/www/html/btm-dev/" , type: "virtualbox"
@@ -34,5 +40,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         sudo service apache2 restart
     SHELL
 	
+	  config.vm.provision :shell, path: "bootstrap.sh"
+
+    config.vm.synced_folder "c:\\git\\btm-sinatra-api-dev", "/var/www/html/btm-api/" , type: "virtualbox"
+
+	config.vm.synced_folder "c:\\git\\fundamentals_of_web_programming", "/var/www/html/fundamentals_of_web_programming/" , type: "virtualbox"
+
+  #config.vm.box = "scotch/box"
+  #  config.vm.network "private_network", ip: "192.168.33.10"
+  #  config.vm.hostname = "scotchbox"
+  #  config.vm.synced_folder ".", "/var/www", :mount_options => ["dmode=777", "fmode=666"]
+
+  config.vm.provision :reload
 
 end
